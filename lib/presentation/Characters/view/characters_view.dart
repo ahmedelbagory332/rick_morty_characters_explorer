@@ -1,11 +1,26 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:go_router/go_router.dart';
+import 'package:rick_morty_characters_explorer/app/app_router.dart';
 import 'package:rick_morty_characters_explorer/presentation/Characters/view/widget/characters_view_body.dart';
 
 import '../manager/characters_cubit.dart';
 
-class CharactersView extends StatelessWidget {
+class CharactersView extends StatefulWidget {
   const CharactersView({super.key});
+
+  @override
+  State<CharactersView> createState() => _CharactersViewState();
+}
+
+class _CharactersViewState extends State<CharactersView> {
+  late CharactersCubit cubit;
+
+  @override
+  void initState() {
+    cubit = context.read<CharactersCubit>();
+    super.initState();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -16,8 +31,9 @@ class CharactersView extends StatelessWidget {
         actions: [
           IconButton(
             icon: const Icon(Icons.favorite),
-            onPressed: () {
-
+            onPressed: () async {
+              await GoRouter.of(context).push(AppRouter.kFavCharactersView);
+              cubit.getAllLocalCharacters();
             },
           ),
           PopupMenuButton<String>(

@@ -11,12 +11,14 @@ class CharacterModel {
 }
 
 class CharacterItem {
+  final int id;
   final String avatarImage;
   final String name;
   final String species;
   final String status;
 
   CharacterItem({
+    required this.id,
     required this.avatarImage,
     required this.name,
     required this.species,

@@ -5,6 +5,7 @@ import 'app/app_router.dart';
 import 'app/di/service_locator.dart';
 
 Future<void> main() async {
+  WidgetsFlutterBinding.ensureInitialized();
   await setupServiceLocator();
   runApp(const MyApp());
 }
