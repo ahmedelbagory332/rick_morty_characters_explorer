@@ -1,16 +1,13 @@
-# rick_morty_characters_explorer
+# rick and morty characters explorer
 
-A new Flutter project.
 
-## Getting Started
+## In this app we use
 
-This project is a starting point for a Flutter application.
+ - Bloc for state management
+ - Dio for networking call
+ - infinite_scroll_pagination for paging
+ - sqflite for local storage
+ - Dependency injection
 
-A few resources to get you started if this is your first Flutter project:
+https://github.com/user-attachments/assets/9f95cb41-0c2f-4826-893e-7545fbb417a5
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
