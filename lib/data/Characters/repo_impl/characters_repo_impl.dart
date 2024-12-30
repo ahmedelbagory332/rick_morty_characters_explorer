@@ -34,6 +34,11 @@ class CharactersRepoImpl implements CharactersRepo {
             name: result.name ?? "",
             species: result.species ?? "",
             status: result.status ?? "",
+            gender: result.gender ?? "",
+            currentLocation: result.location?.name ?? "",
+            originLocation: result.origin?.name ?? "",
+            episodes: result.episode ?? [],
+            type: result.type ?? "",
           );
         }).toList();
 

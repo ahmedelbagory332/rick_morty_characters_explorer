@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:go_router/go_router.dart';
 import 'package:infinite_scroll_pagination/infinite_scroll_pagination.dart';
 import 'package:rick_morty_characters_explorer/presentation/Characters/view/widget/character_list_item.dart';
 import 'package:rick_morty_characters_explorer/presentation/Characters/view/widget/search_bar.dart';
+import '../../../../app/app_router.dart';
 import '../../../../domain/Characters/entity/characters_model.dart';
 import '../../manager/characters_cubit.dart';
 import 'empty_error.dart';
@@ -65,9 +67,16 @@ class _CharactersViewBodyState extends State<CharactersViewBody> {
                   context.read<CharactersCubit>().pagingListController,
               builderDelegate: PagedChildBuilderDelegate<CharacterItem>(
                 itemBuilder: (context, item, index) {
-                  return characterListItem(context, item,(favItem) {
-                    context.read<CharactersCubit>().onFavClick(favItem);
-                  },);
+                  return characterListItem(
+                    context: context,
+                    item: item,
+                    favItem: (favItem) {
+                      context.read<CharactersCubit>().onFavClick(favItem);
+                    },
+                    clickedItem: (clickedItem) {
+                      GoRouter.of(context).push(AppRouter.kCharacterDetailsView, extra: clickedItem);
+                    },
+                  );
                 },
                 noItemsFoundIndicatorBuilder: (BuildContext context) {
                   return const EmptyError(text: "No Data");

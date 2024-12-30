@@ -16,6 +16,11 @@ class CharacterItem {
   final String name;
   final String species;
   final String status;
+  final String type;
+  final String gender;
+  final String originLocation;
+  final String currentLocation;
+  final List<String> episodes;
 
   CharacterItem({
     required this.id,
@@ -23,5 +28,10 @@ class CharacterItem {
     required this.name,
     required this.species,
     required this.status,
+    required this.type,
+    required this.gender,
+    required this.originLocation,
+    required this.currentLocation,
+    required this.episodes,
   });
 }
